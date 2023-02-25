@@ -1,0 +1,65 @@
+$names: (thin,  light,  medium,  semibold,  bold);
+$weights: (100, 300, 500, 600, 700);
+
+.roboto {
+  font-family: var(--bs-roboto) !important;
+  @for $i from 1 to length($names) + 1 {
+    &--#{nth($names, $i)} {
+      font-family: var(--bs-roboto) !important;
+      font-weight: nth($weights, $i) !important; 
+    }
+  }
+}
+.zilla-slab {
+  font-family: var(--bs-zilla-slab) !important;
+  @for $i from 1 to length($names)+1 {
+    &--#{nth($names, $i)} {
+      font-family: var(--bs-zilla-slab) !important;
+      font-weight: nth($weights, $i) !important;
+    }
+  }
+}
+
+.text { 
+  $types: 25, 50, 75;
+  &-primary {
+    color: var(--bs-primary) !important; 
+    @each $type in $types {
+      &--#{$type} {
+        color: var(--bs-primary--#{$type}) !important;
+      }
+    }
+  }
+  &-secondary {
+    color: var(--bs-secondary) !important; 
+    @each $type in $types {
+      &--#{$type} {
+        color: var(--bs-secondary--#{$type}) !important;
+      }
+    }
+  }
+}
+.bg { 
+  $types: 25, 50, 75;
+  &-primary {
+    background-color: var(--bs-primary) !important; 
+    @each $type in $types {
+      &--#{$type} {
+        background-color: var(--bs-primary--#{$type}) !important;
+      }
+    }
+  }
+  &-secondary {
+    background-color: var(--bs-secondary) !important; 
+    @each $type in $types {
+      &--#{$type} {
+        background-color: var(--bs-secondary--#{$type}) !important;
+      }
+    }
+  }
+}
+
+.large-size {
+  font-size: clamp(1.5rem, 10vw, 3.25rem) !important;
+  line-height: clamp(1.5rem, 10vw, 3.5rem) !important;
+}
